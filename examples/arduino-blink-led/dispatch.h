@@ -25,23 +25,28 @@
 
 #include <inttypes.h>
 
+
 /**** set for your application ***************************/
 
 // total number of tasks. range is 1 to 255
-#define TOTALTASKS 1
+#define TOTALTASKS 4
 
 // allocate each task a position in the task array
 // each name must be defined as a unique number
-#define TSK_TOGGLE_LED 	0
+#define TSK_SAMPLE_TASK_NAME_1 	0
+#define TSK_SAMPLE_TASK_NAME_2 	1
+#define TSK_SAMPLE_TASK_NAME_3 	2
+#define TSK_SAMPLE_TASK_NAME_4 	3
 
 /*********************************************************/
+
 
 void dispatchInit(void);
 void dispatchTasks(void);
 void dispatchTick(void);
-void queTask(uint8_t taskID);
-void queTaskDelayed(uint8_t taskID, uint16_t delay_);
-void unQueTask(uint8_t taskID);
+void queueTask(uint8_t taskID);
+void queueTaskDelayed(uint8_t taskID, uint16_t delay_);
+void unQueueTask(uint8_t taskID);
 void setTask(uint8_t taskID, void (*pointer_to_function)(void));
 
 #endif

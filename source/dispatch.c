@@ -71,17 +71,17 @@ void dispatchTick(void) {
 	}
 }
 
-void queTask(uint8_t taskID) {
+void queueTask(uint8_t taskID) {
 	task[taskID].active = 1;
 	task[taskID].delay = 0;
 }
 
-void queTaskDelayed(uint8_t taskID, uint16_t delay_) {
+void queueTaskDelayed(uint8_t taskID, uint16_t delay_) {
 	task[taskID].active = 1;
 	task[taskID].delay = delay_;
 }
 
-void unQueTask(uint8_t taskID) {
+void unQueueTask(uint8_t taskID) {
 	task[taskID].active = 0;
 }
 

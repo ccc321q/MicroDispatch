@@ -28,7 +28,7 @@
  * 1. define total number of tasks in dispatch.h
  * 2. define a name for each task in dispatch.h, each name must be defined as a unique number.
  * 3. call setTask(TASK_NAME, &functionName); to link the task name and function.
- * 4. call queTask(TASK_NAME) or queTaskDelayed(TASK_NAME, 32), the delay range is 0 to 65535
+ * 4. call queueTask(TASK_NAME) or queueTaskDelayed(TASK_NAME, 32), the delay range is 0 to 65535
  */
 
 
@@ -37,7 +37,7 @@ void toggleLed(void) {
 	PORTB ^= (1<<5);
 	
 	// rerun this task every 200 ticks
-	queTaskDelayed(TSK_TOGGLE_LED, 200);
+	queueTaskDelayed(TSK_TOGGLE_LED, 200);
 }
 
 int main(void) {
@@ -51,7 +51,7 @@ int main(void) {
 	TIMSK0 = _BV(OCIE0A);  	// enable output-compare interrupt TIMER0_COMPA
 	
 	setTask(TSK_TOGGLE_LED, &toggleLed);
-	queTask(TSK_TOGGLE_LED);
+	queueTask(TSK_TOGGLE_LED);
 	for(;;) {
 		dispatchTasks();
 	}
